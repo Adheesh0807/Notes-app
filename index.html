@@ -9,16 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 
-<script>
-    function execCommandWithPrevention(event, command) {
-        event.preventDefault(); // Prevent form submission
-        document.execCommand(command);
-    }
-
-    function changeTextColor(color) {
-        document.execCommand('foreColor', false, color);
-    }
-</script>
 
 </head>
 <body>
@@ -54,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="timestamp">Timestamp</label>
-                <input type="text" id="timestamp" name="timestamp" readonly value="2024-09-22 05:49:37">
+                <div type="text" id="timestamp"> Timestamp :</div>
             </div>
             <div class="media">
             <div class="form-group file-upload">
@@ -77,5 +67,19 @@
             </div>
         </form>
     </div>
+    <script>
+        function execCommandWithPrevention(event, command) {
+            event.preventDefault(); // Prevent form submission
+            document.execCommand(command);
+        }
+    
+        function changeTextColor(color) {
+            document.execCommand('foreColor', false, color);
+        }
+        const d = new Date();
+        console.log(d);
+        let test = d.toLocaleString();
+        document.querySelector('#timestamp').innerText=`Timestamp : ${test}`;
+    </script>
 </body>
 </html>
