@@ -1,85 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notes Application</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-
-
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h2>Add new</h2>
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" placeholder="Title">
-            </div>
-            <div class="form-group">
-                <label for="message">Notes</label>
-                <div class="toolbar">
-                    <!-- Buttons for Formatting -->
-                    <button onclick="execCommandWithPrevention(event ,'bold')">B</button>
-                    <button onclick="execCommandWithPrevention(event ,'italic')"><i>I</i></button>
-                    <button onclick="execCommandWithPrevention(event ,'underline')"><u>U</u></button>
-                    <button onclick="execCommandWithPrevention(event ,'insertUnorderedList')">Bullets</button>
-                    
-                    <!-- Color Selector -->
-                    <select onchange="changeTextColor(this.value)">
-                        <option value="black">Black</option>
-                        <option value="red">Red</option>
-                        <option value="blue">Blue</option>
-                        <option value="yellow">Yellow</option>
-                    </select>
-                    
-                    <!-- Undo Button -->
-                    <button onclick="execCommandWithPrevention(event ,'undo')">Undo</button>
-                    
-                </div>
-                <div contenteditable="true" spellcheck="false" class="editable-div" id="message" name="message" placeholder="Express your thoughts and feelings here" required></div>
-            </div>
-            <div class="form-group">
-                <label for="timestamp">Timestamp</label>
-                <div type="text" id="timestamp"> Timestamp :</div>
-            </div>
-            <div class="media">
-            <div class="form-group file-upload">
-                <label>Image Upload</label> <br>
-                <input type="file">
-                <div class="file-drop">
-                    <p>Choose an image file to Upload</p>
-                </div>
-            </div>
-            <div class="form-group file-upload">
-                <label>Audio Upload</label> <br>
-                <input type="file">
-                <div class="file-drop">
-                    <p>Choose an audio file to Upload</p>
-                </div>
-            </div>
+      <h2>Add new</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Title" />
         </div>
-            <div class="form-group">
-                <button type="submit" id="save">Save</button>
+        <div class="form-group">
+          <label for="message">Notes</label>
+          <div class="toolbar">
+            <!-- Buttons for Formatting -->
+            <button onclick="execCommandWithPrevention(event ,'bold')">
+              B
+            </button>
+            <button onclick="execCommandWithPrevention(event ,'italic')">
+              <i>I</i>
+            </button>
+            <button onclick="execCommandWithPrevention(event ,'underline')">
+              <u>U</u>
+            </button>
+            <button
+              onclick="execCommandWithPrevention(event ,'insertUnorderedList')"
+            >Bullets
+            </button>
+            <button id="clear">
+              Clear
+            </button>
+            <button id="retreive">
+              Retreive Previous Note
+            </button>
+
+            <!-- Color Selector -->
+            <select onchange="changeTextColor(this.value)">
+              <option value="black">Black</option>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="yellow">Yellow</option>
+            </select>
+
+            <!-- Undo Button -->
+            <button onclick="execCommandWithPrevention(event ,'undo')">
+              Undo
+            </button>
+          </div>
+          <!-- TEXTBOX -->
+          <div
+            contenteditable="true"
+            spellcheck="false"
+            class="editable-div"
+            id="message"
+            name="message"
+            placeholder="Express your thoughts and feelings here"
+            required
+          ></div>
+        </div>
+        <div class="form-group">
+
+            <!-- TIME STAMP -->
+          <label for="timestamp">Timestamp</label>
+          <div type="text" id="timestamp">Timestamp :</div>
+        </div>
+
+        <!-- MEDIA -->
+        <div class="media">
+          <div class="form-group file-upload">
+            <label>Image Upload</label> <br />
+            <input type="file" />
+            <div class="file-drop">
+              
             </div>
-        </form>
+          </div>
+          <div class="form-group file-upload">
+            <label>Audio Upload</label> <br />
+            <input type="file" />
+            <div class="file-drop">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button id="save">Save</button>
+        </div>
+      </form>
     </div>
-    <script>
-        function execCommandWithPrevention(event, command) {
-            event.preventDefault(); // Prevent form submission
-            document.execCommand(command);
-        }
-    
-        function changeTextColor(color) {
-            document.execCommand('foreColor', false, color);
-        }
-        const d = new Date();
-        console.log(d);
-        let test = d.toLocaleString();
-        document.querySelector('#timestamp').innerText=`Timestamp : ${test}`;
-    </script>
-</body>
+
+    <!-- Script -->
+  </body>
+  <script src="test.js"></script>
 </html>
