@@ -7,9 +7,16 @@ function execCommandWithPrevention(event, command) {
     document.execCommand("foreColor", false, color);
   }
 
+  function updateTimestamp(){
   const d = new Date();
   const formattedDate = d.toLocaleString();
-  document.querySelector("#timestamp").innerText = `${formattedDate}`;
+  document.querySelector("#timestamp").innerText = `${formattedDate}`;}
+
+
+  setInterval(updateTimestamp, 1000);
+
+    // Call it once immediately to avoid delay
+    updateTimestamp();
 
   // Save function to prevent form submission and save content to localStorage
 
