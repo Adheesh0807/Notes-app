@@ -9,7 +9,7 @@ function execCommandWithPrevention(event, command) {
 
   const d = new Date();
   const formattedDate = d.toLocaleString();
-  document.querySelector("#timestamp").innerText = `Timestamp: ${formattedDate}`;
+  document.querySelector("#timestamp").innerText = `${formattedDate}`;
 
   // Save function to prevent form submission and save content to localStorage
 
@@ -42,5 +42,30 @@ function execCommandWithPrevention(event, command) {
 
   const clear= document.querySelector('#clear').addEventListener('click',(event)=>{
     event.preventDefault(); // Prevent default form submission
+    document.getElementById("title").innerHTML = "";
     document.getElementById("message").innerHTML = "";
   })
+
+// Image File Input
+const imageInput = document.getElementById('imageUpload');
+const imageFileName = document.getElementById('image-file-name');
+
+imageInput.addEventListener('change', function() {
+    if (imageInput.files.length > 0) {
+        imageFileName.textContent = imageInput.files[0].name;
+    } else {
+        imageFileName.textContent = "No file chosen";
+    }
+});
+
+// Audio File Input
+const audioInput = document.getElementById('audioUpload');
+const audioFileName = document.getElementById('audio-file-name');
+
+audioInput.addEventListener('change', function() {
+    if (audioInput.files.length > 0) {
+        audioFileName.textContent = audioInput.files[0].name;
+    } else {
+        audioFileName.textContent = "No file chosen";
+    }
+});

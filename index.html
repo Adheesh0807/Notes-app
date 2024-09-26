@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
-      rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+    rel="stylesheet"
     />
   </head>
   <body>
@@ -17,48 +17,52 @@
       <h2>Add new</h2>
       <form action="#" method="post">
         <div class="form-group">
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" placeholder="Title" />
-        </div>
-        <div class="form-group">
-          <label for="message">Notes</label>
-          <div class="toolbar">
-            <!-- Buttons for Formatting -->
-            <button onclick="execCommandWithPrevention(event ,'bold')">
-              B
-            </button>
-            <button onclick="execCommandWithPrevention(event ,'italic')">
-              <i>I</i>
-            </button>
-            <button onclick="execCommandWithPrevention(event ,'underline')">
-              <u>U</u>
-            </button>
-            <button
-              onclick="execCommandWithPrevention(event ,'insertUnorderedList')"
-            >Bullets
-            </button>
-            <button id="clear">
-              Clear
-            </button>
-            <button id="retreive">
-              Retreive Previous Note
-            </button>
-
-            <!-- Color Selector -->
-            <select onchange="changeTextColor(this.value)">
-              <option value="black">Black</option>
-              <option value="red">Red</option>
-              <option value="blue">Blue</option>
-              <option value="yellow">Yellow</option>
-            </select>
-
-            <!-- Undo Button -->
-            <button onclick="execCommandWithPrevention(event ,'undo')">
-              Undo
-            </button>
-          </div>
-          <!-- TEXTBOX -->
+          <label for="title">Enter Title</label>
           <div
+          type="text"
+            id="title"
+            name="title"
+            contenteditable="true"
+            spellcheck="false"
+            placeholder="Title"
+            required
+            ></div>
+            <br />
+            <!-- TIME STAMP -->
+            <label for="timestamp">Time</label>
+            <div type="text" id="timestamp"></div>
+            </div>
+            <div class="form-group">
+              <label for="message">Notes</label>
+            <div class="toolbar">   
+              <!-- Buttons for Formatting -->
+              <button onclick="execCommandWithPrevention(event ,'bold')">
+                B
+              </button>
+              <button onclick="execCommandWithPrevention(event ,'italic')">
+                <i>I</i>
+              </button>
+              <button onclick="execCommandWithPrevention(event ,'underline')">
+                <u>U</u>
+              </button>
+              <button id="clear">Clear All</button>
+              <button id="retreive">Retreive Previous Note</button>
+              
+              <!-- Color Selector -->
+              <select onchange="changeTextColor(this.value)">
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+              </select>
+
+              <!-- Undo Button -->
+              <button onclick="execCommandWithPrevention(event ,'undo')">
+                Undo
+              </button>
+            </div>
+            <!-- TEXTBOX -->
+            <div
             contenteditable="true"
             spellcheck="false"
             class="editable-div"
@@ -66,32 +70,42 @@
             name="message"
             placeholder="Express your thoughts and feelings here"
             required
-          ></div>
-        </div>
-        <div class="form-group">
-
-            <!-- TIME STAMP -->
-          <label for="timestamp">Timestamp</label>
-          <div type="text" id="timestamp">Timestamp :</div>
-        </div>
-
-        <!-- MEDIA -->
-        <div class="media">
-          <div class="form-group file-upload">
-            <label>Image Upload</label> <br />
-            <input type="file" />
-            <div class="file-drop">
-              
+            ></div>
+          </div>
+          <div class="form-group">
+            
+            
+          <!-- MEDIA -->
+          <div class="media">
+            <!-- Image Upload -->
+            <div class="form-group file-upload">
+              <label for="imageUpload">Image Upload</label> <br />
+              <div class="file-upload-wrapper">
+                <label for="imageUpload" class="custom-file-upload">
+                  <i class="plus-icon">+</i>
+                </label>
+                <input type="file" id="imageUpload" class="file-input" accept=".jpg, .jpeg, .png" />
+                <span id="image-file-name" class="hidden">No file chosen</span> <!-- Unique ID -->
+              </div>
+            </div>
+          
+            <!-- Audio Upload -->
+            <div class="form-group file-upload">
+              <label for="audioUpload">Audio Upload</label> <br />
+              <div class="file-upload-wrapper">
+                <label for="audioUpload" class="custom-file-upload">
+                  <i class="plus-icon">+</i>
+                </label>
+                <input type="file" id="audioUpload" class="file-input" accept="audio/*" />
+                <span id="audio-file-name" class="hidden">No file chosen</span> <!-- Unique ID -->
+              </div>
             </div>
           </div>
-          <div class="form-group file-upload">
-            <label>Audio Upload</label> <br />
-            <input type="file" />
-            <div class="file-drop">
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
+          
+        
+
+        <!-- save -->
+        <div class="form-group" style="display: flex; align-items: center; justify-content: center;">
           <button id="save">Save</button>
         </div>
       </form>

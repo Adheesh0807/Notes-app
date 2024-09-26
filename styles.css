@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f49d;
-    background-image: url(bg2.jpeg);
+    background-image: url(img/bg5.jpg);
     background-position: center;
     background-size: cover;
     padding: 20px;
@@ -22,8 +22,24 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-#title{
+
+#title {
     width: 50%;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #fff;
+    outline: none;
+}
+
+#title[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #999;
+    pointer-events: none;
 }
 
 h2 {
@@ -41,7 +57,7 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"], textarea {
+input[type="text"], textarea, #timestamp {
     width: 100%;
     padding: 10px;
     border: 1px solid #cccccca6;
@@ -50,36 +66,31 @@ input[type="text"], textarea {
     line-height: 25px;
 }
 
-/* textarea {
-    height: 250px;
-    line-height: 25px;
-    
-    
-    
-    font-family: "Dancing Script", cursive;
-    font-size: 20px;
-    white-space: pre-wrap;
-} */
-
-input[readonly] {
+#timestamp {
     background-color: #f9f9f999;
 }
 
 .file-upload {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     border: 2px dashed #ccc;
-    border-radius: 14px;
+    border-radius: 20px;
     background-color: #f9f9f9;
     display: inline-block;
     width: 20%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .file-drop {
+    width: 20%;
+    height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
     gap: 200px;
 }
 
@@ -89,9 +100,9 @@ input[readonly] {
 }
 
 #save {
-    width: 100%;
+    width: 50%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: rgb(18, 47, 90);
     color: white;
     border: none;
     border-radius: 4px;
@@ -100,17 +111,13 @@ input[readonly] {
 }
 
 #save:hover {
-    background-color: #218838;
+    background-color: rgb(7, 26, 55);
 }
 
 .editable-div {
-/*     white-space: pre-wrap;
-    line-height: 25px;
-    background-size: 100% 25px;
-    background-image: linear-gradient(transparent 23px, #2b2b2b 24px); */
     resize: vertical;
     width: 100%;
-    height: 240px;
+    height: 300px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -118,15 +125,14 @@ input[readonly] {
     font-size: 16px;
     line-height: 1.5;
     background-color: #fff;
-    outline: none; /* Prevent default focus outline */
+    outline: none;
     overflow-y: auto;
 }
 
-/* Placeholder styling for the editable div */
 .editable-div[placeholder]:empty:before {
     content: attr(placeholder);
     color: #999;
-    pointer-events: none; /* So the placeholder doesn't interfere with typing */
+    pointer-events: none;
 }
 
 .toolbar {
@@ -148,9 +154,41 @@ input[readonly] {
     background-color: #e0e0e0;
 }
 
-.media{
+.media {
     display: flex;
     gap: auto;
     align-items: center;
     justify-content: space-evenly;
+}
+
+/* Hide the default file input */
+.file-input {
+    display: none;
+}
+
+/* Customize the label as the upload button */
+.custom-file-upload {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
+
+/* Plus icon styling */
+.plus-icon {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
 }
