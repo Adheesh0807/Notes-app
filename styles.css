@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f49d;
-    background-image: url(bg5.jpg);
+    background-image: url(img/bg5.jpg);
     background-position: center;
     background-size: cover;
     padding: 20px;
@@ -169,7 +169,7 @@ input[type="text"], textarea, #timestamp {
 /* Customize the label as the upload button */
 .custom-file-upload {
     display: inline-block;
-    background-color: #4CAF50;
+    background-color: rgb(18, 47, 90);
     color: white;
     padding: 10px;
     border-radius: 50%;
@@ -183,7 +183,7 @@ input[type="text"], textarea, #timestamp {
 }
 
 .custom-file-upload:hover {
-    background-color: #45a049;
+    background-color: rgb(18, 47, 90);
 }
 
 /* Plus icon styling */
